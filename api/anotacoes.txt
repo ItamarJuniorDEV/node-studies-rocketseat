@@ -45,4 +45,7 @@ HTTP mais usados:
 404: Não encontrado
 500: Erro interno
 -------------------------------------------------
-Normalmente com o método post, se envia pelo corpo.
+Middleware: É um segurança do ciclo da aplicação, na qual só libera a requisição para a função, caso tenha autorização.
+- Podem executar qualquer código
+- Fazer mudanças nos objetos de solicitação e resposta.
+- Encerrar o ciclo de solicitação-resposta
