@@ -42,5 +42,7 @@ HTTP mais usados:
 302: Movido
 400: Bad Request
 401: Não autorizado
-404: Não encotrado
+404: Não encontrado
 500: Erro interno
+-------------------------------------------------
+Normalmente com o método post, se envia pelo corpo.
