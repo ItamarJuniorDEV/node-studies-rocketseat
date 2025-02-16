@@ -1,0 +1,46 @@
+Criando um projeto node:
+1º baixar o node.js
+2º npm init -y
+
+CommonJS: Mais antiga e se importa com o require
+ESModules: Mais atual e se importa com o import e precisa declarar "type":"module",
+------------------------------------------------
+Criando um servidor http:
+import http from "node:http";
+
+const server = http.createServer((req, res) => {
+  return res.end("Servidor rodando!");
+});
+
+server.listen(3333);
+-------------------------------------------------
+node --watch src/server.js: para não precisar salvar toda hora
+-------------------------------------------------
+Rota: protocolo(https://)meuservidor.com.br(endereço do servidor)/products(rota)
+
+Métodos HTTP:
+GET: Ler (buscar)
+POST: Criar
+PUT: Atualizar
+DELETE: Deletar
+PATCH: Atualização Parcial
+
+Requisição = Método HTTP 
+
+HTTP response status codes:
+1xx: Respostas Informativas
+2xx: Sucesso
+3xx: Redirecionamento
+4xx: Erro do Cliente
+5xx: Erro no Servidor.
+
+HTTP mais usados:
+102: Processando
+200: Requisição bem sucedida
+201: Criado - Geralmente criado para o POST após uma inserção
+301: Movido Permanentemente
+302: Movido
+400: Bad Request
+401: Não autorizado
+404: Não encotrado
+500: Erro interno
