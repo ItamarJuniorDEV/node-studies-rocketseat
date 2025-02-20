@@ -1,13 +1,16 @@
 import { routes } from "../routes.js";
 
 export function routeHandler(req, res) {
-  console.log(req.url);
-
   const route = routes.find((route) => {
-    return route.method === req.method && route.path === req.url;
+    return route.method === req.method && route.path.test(req.url);
   });
 
   if (route) {
+    const routeParameters = req.url.match(route.path);
+    const { ...params } = routeParameters.groups;
+
+    req.params = params;
+
     return route.controller(req, res);
   }
   return res.writeHead(404).end("Rota não encontrada!");
