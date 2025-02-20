@@ -73,3 +73,10 @@ export const routes = [
     },
   },
 ];
+-------------------------------------------------
+Parâmetros nomeados:
+exemplo: http://localhost:3333/products?category=computer&price=5000
+Formado:
+Name | value 
+Usado para repaginação e filtros em páginas.
+-------------------------------------------------
