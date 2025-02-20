@@ -4,22 +4,28 @@ export const routes = [
   {
     method: "GET",
     path: parseRoutePath("/products"),
-    controller: (req, res) => {
-      return res.end(JSON.stringify(req.query));
+    controller: ({ req, res, database }) => {
+      const products = database.select("products");
+
+      return res.end(JSON.stringify(products));
     },
   },
   {
     method: "POST",
     path: parseRoutePath("/products"),
-    controller: (req, res) => {
-      return res.writeHead(201).end(JSON.stringify(req.body));
+    controller: ({ req, res, database }) => {
+      const { name, price } = req.body;
+
+      database.insert("products", { name, price });
+
+      return res.writeHead(201).end();
     },
   },
   {
     method: "DELETE",
     path: "/products/:id",
-    controller: (req, res) => {
-      return res.end("Produto removido com ID: " + req.params.id);
+    controller: ({ req, res }) => {
+      return res.end(req.params.id);
     },
   },
 ].map((route) => {
